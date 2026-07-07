@@ -1,0 +1,93 @@
+---
+import '../styles/global.css';
+import { ui } from '../i18n/ui.js';
+import { LOCALES, LOCALE_PATHS, DEFAULT_LOCALE } from '../i18n/config.js';
+import LangSwitcher from '../components/LangSwitcher.astro';
+
+interface Props {
+  locale: keyof typeof ui;
+}
+
+const { locale } = Astro.props;
+const t = ui[locale];
+
+const favicon =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%230b0d14'/%3E%3Cpath fill='%23e8b45a' d='M12 2.5l2.55 6.35 6.85.55-5.2 4.5 1.6 6.7L12 16.9l-5.8 3.7 1.6-6.7-5.2-4.5 6.85-.55L12 2.5z'/%3E%3C/svg%3E";
+---
+
+<html lang={t.htmlLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--
+      Locale auto-detect / redirect, kept intentionally tiny and best-effort:
+      - a stored preference always wins and never loops (we only redirect when
+        the target path differs from the current one)
+      - with no stored preference, only the default (en) page probes
+        navigator.language, and only for zh/ja
+    -->
+    <script
+      is:inline
+      define:vars={{ currentLocale: locale, defaultLocale: DEFAULT_LOCALE, localePaths: LOCALE_PATHS }}
+    >
+      (function () {
+        try {
+          var stored = null;
+          try {
+            stored = window.localStorage.getItem('fable-lang');
+          } catch (e) {}
+
+          var pathname = window.location.pathname;
+
+          if (stored && localePaths[stored] && stored !== currentLocale) {
+            var target = localePaths[stored];
+            if (target !== pathname) {
+              window.location.replace(target);
+              return;
+            }
+          }
+
+          if (!stored && currentLocale === defaultLocale) {
+            var nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
+            var detected = null;
+            if (nav.indexOf('zh') === 0) detected = 'zh';
+            else if (nav.indexOf('ja') === 0) detected = 'ja';
+
+            if (detected && localePaths[detected]) {
+              var target2 = localePaths[detected];
+              if (target2 !== pathname) {
+                try {
+                  window.localStorage.setItem('fable-lang', detected);
+                } catch (e) {}
+                window.location.replace(target2);
+              }
+            }
+          }
+        } catch (e) {
+          /* Detection is best-effort only — never block rendering. */
+        }
+      })();
+    </script>
+
+    <title>{t.title}</title>
+    <meta name="description" content={t.description} />
+    <meta property="og:title" content={t.ogTitle} />
+    <meta property="og:description" content={t.ogDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={t.ogLocale} />
+    <link rel="icon" type="image/svg+xml" href={favicon} />
+
+    {LOCALES.map((loc) => <link rel="alternate" hreflang={loc} href={LOCALE_PATHS[loc]} />)}
+    <link rel="alternate" hreflang="x-default" href={LOCALE_PATHS[DEFAULT_LOCALE]} />
+  </head>
+  <body class="relative min-h-screen bg-[#0b0d14] text-[#f2ecdf] font-display selection:bg-[#e8b45a]/30 selection:text-[#fff8ea]">
+    <div class="starfield" aria-hidden="true">
+      <div class="star-layer"></div>
+    </div>
+
+    <LangSwitcher locale={locale} />
+
+    <slot />
+  </body>
+</html>

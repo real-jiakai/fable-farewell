@@ -1,0 +1,193 @@
+---
+import { DEPARTURE_ISO } from '../i18n/config.js';
+import { ui } from '../i18n/ui.js';
+
+interface Props {
+  locale: keyof typeof ui;
+}
+
+const { locale } = Astro.props;
+const t = ui[locale];
+---
+
+<main class="relative z-10 mx-auto flex min-h-screen max-w-3xl flex-col items-center gap-14 px-5 py-16 sm:px-8 sm:py-24">
+  <!-- Hero -->
+  <header class="flex flex-col items-center gap-4 text-center">
+    <p class="font-numeric text-xs uppercase tracking-[0.3em] text-[#e8b45a]/80">{t.eyebrow}</p>
+    <h1 class="text-balance text-[clamp(2rem,6vw,3.5rem)] font-normal leading-tight text-[#f7f1e3]">
+      {t.heroPre}<span class="text-[#e8b45a] glow-amber">{t.heroName}</span>
+    </h1>
+    <p class="max-w-xl text-balance text-[clamp(0.95rem,2.4vw,1.15rem)] text-[#cfc7b4]">
+      {t.subtitle}
+    </p>
+  </header>
+
+  <!-- Countdown -->
+  <section aria-labelledby="countdown-heading" class="flex w-full flex-col items-center gap-6">
+    <h2 id="countdown-heading" class="font-numeric text-xs uppercase tracking-[0.3em] text-[#cfc7b4]/70">
+      {t.countdownHeading}
+    </h2>
+
+    <div
+      id="countdown-wrap"
+      class="flex w-full flex-wrap items-end justify-center gap-2 sm:gap-5"
+    >
+      <div id="cd-days-cell" class="card-ink flex min-w-[4.5rem] flex-col items-center rounded-2xl px-3 py-4 sm:min-w-[6rem] sm:px-5 sm:py-6">
+        <span id="cd-days" class="font-numeric glow-amber text-[clamp(2rem,9vw,4.5rem)] leading-none text-[#f7f1e3]">&hellip;</span>
+        <span class="mt-2 text-[0.65rem] uppercase tracking-[0.2em] text-[#cfc7b4]/70">{t.units.days}</span>
+      </div>
+      <div class="card-ink flex min-w-[4.5rem] flex-col items-center rounded-2xl px-3 py-4 sm:min-w-[6rem] sm:px-5 sm:py-6">
+        <span id="cd-hours" class="font-numeric glow-amber text-[clamp(2rem,9vw,4.5rem)] leading-none text-[#f7f1e3]">&hellip;</span>
+        <span class="mt-2 text-[0.65rem] uppercase tracking-[0.2em] text-[#cfc7b4]/70">{t.units.hours}</span>
+      </div>
+      <div class="card-ink flex min-w-[4.5rem] flex-col items-center rounded-2xl px-3 py-4 sm:min-w-[6rem] sm:px-5 sm:py-6">
+        <span id="cd-mins" class="font-numeric glow-amber text-[clamp(2rem,9vw,4.5rem)] leading-none text-[#f7f1e3]">&hellip;</span>
+        <span class="mt-2 text-[0.65rem] uppercase tracking-[0.2em] text-[#cfc7b4]/70">{t.units.minutes}</span>
+      </div>
+      <div class="card-ink flex min-w-[4.5rem] flex-col items-center rounded-2xl px-3 py-4 sm:min-w-[6rem] sm:px-5 sm:py-6">
+        <span id="cd-secs" class="font-numeric glow-amber text-[clamp(2rem,9vw,4.5rem)] leading-none text-[#f7f1e3]">&hellip;</span>
+        <span class="mt-2 text-[0.65rem] uppercase tracking-[0.2em] text-[#cfc7b4]/70">{t.units.seconds}</span>
+      </div>
+    </div>
+
+    <div id="ended-wrap" class="card-ink hidden max-w-xl rounded-2xl px-6 py-8 text-center sm:px-10">
+      <p class="text-[clamp(1.05rem,3vw,1.35rem)] leading-relaxed text-[#f7f1e3]">
+        {t.endedMessage}
+      </p>
+    </div>
+
+    <p id="tz-line" class="font-numeric text-center text-sm text-[#cfc7b4]/80">
+      {t.tzCalculating}
+    </p>
+  </section>
+
+  <!-- World clock -->
+  <section aria-labelledby="world-clock-heading" class="w-full">
+    <h2 id="world-clock-heading" class="mb-4 text-center font-numeric text-xs uppercase tracking-[0.3em] text-[#cfc7b4]/70">
+      {t.worldClockHeading}
+    </h2>
+    <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
+      {
+        t.worldZones.map((z, i) => (
+          <div
+            data-tz={z.tz}
+            class:list={[
+              'card-ink flex flex-col items-center gap-1 rounded-xl px-2 py-3 text-center',
+              i === t.worldZones.length - 1 && t.worldZones.length % 2 === 1 && 'col-span-2 justify-self-center sm:col-span-1',
+            ]}
+          >
+            <span class="text-[0.7rem] uppercase tracking-wide text-[#cfc7b4]/70">{z.label}</span>
+            <span class="wc-time font-numeric text-sm text-[#f2ecdf]">&hellip;</span>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <script
+    is:inline
+    define:vars={{
+      zones: t.worldZones.map((z) => z.tz),
+      departureIso: DEPARTURE_ISO,
+      intlLocale: t.intlLocale,
+      tzLabelTemplate: t.tzLabelTemplate,
+    }}
+  >
+    // Single source of truth for the departure instant (from src/i18n/config.js).
+    // end of day July 7, 2026, Pacific Time (estimated — no official time published)
+    const DEPARTURE_ISO = departureIso;
+    const departureMs = new Date(DEPARTURE_ISO).getTime();
+
+    function renderCountdown() {
+      const diff = departureMs - Date.now();
+
+      const daysCell = document.getElementById('cd-days-cell');
+      const daysEl = document.getElementById('cd-days');
+      const hoursEl = document.getElementById('cd-hours');
+      const minsEl = document.getElementById('cd-mins');
+      const secsEl = document.getElementById('cd-secs');
+      const countdownWrap = document.getElementById('countdown-wrap');
+      const endedWrap = document.getElementById('ended-wrap');
+
+      if (diff <= 0) {
+        if (countdownWrap) countdownWrap.style.display = 'none';
+        if (endedWrap) endedWrap.classList.remove('hidden');
+        if (window.__fableCountdownTimer) {
+          clearInterval(window.__fableCountdownTimer);
+          window.__fableCountdownTimer = null;
+        }
+        return;
+      }
+
+      const totalSeconds = Math.floor(diff / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const mins = Math.floor((totalSeconds % 3600) / 60);
+      const secs = totalSeconds % 60;
+
+      if (daysEl) daysEl.textContent = String(days);
+      if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+      if (minsEl) minsEl.textContent = String(mins).padStart(2, '0');
+      if (secsEl) secsEl.textContent = String(secs).padStart(2, '0');
+      if (daysCell) daysCell.style.display = days > 0 ? '' : 'none';
+    }
+
+    // Synchronous first paint — no flash of placeholders.
+    renderCountdown();
+    window.__fableCountdownTimer = setInterval(renderCountdown, 250);
+
+    // Local-timezone line.
+    try {
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const localStr = new Intl.DateTimeFormat(intlLocale, {
+        dateStyle: 'full',
+        timeStyle: 'long',
+      }).format(new Date(DEPARTURE_ISO));
+      const tzLine = document.getElementById('tz-line');
+      if (tzLine) tzLine.textContent = tzLabelTemplate.replace('{tz}', tz) + ' ' + localStr;
+    } catch (e) {
+      /* Intl unsupported — leave placeholder */
+    }
+
+    // World clock strip.
+    try {
+      const departureDate = new Date(DEPARTURE_ISO);
+      zones.forEach(function (zone) {
+        const fmt = new Intl.DateTimeFormat(intlLocale, {
+          timeZone: zone,
+          month: 'short',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: '2-digit',
+          hour12: false,
+        });
+        const cell = document.querySelector('[data-tz="' + zone + '"] .wc-time');
+        if (cell) cell.textContent = fmt.format(departureDate);
+      });
+    } catch (e) {
+      /* Intl unsupported — leave placeholders */
+    }
+  </script>
+
+  <!-- What's actually happening -->
+  <section aria-labelledby="facts-heading" class="card-ink w-full rounded-2xl px-6 py-8 sm:px-10">
+    <h2 id="facts-heading" class="mb-4 text-center text-[clamp(1.1rem,3vw,1.4rem)] text-[#f7f1e3]">
+      {t.factsHeading}
+    </h2>
+    <ul class="mx-auto flex max-w-xl flex-col gap-3 text-[0.95rem] leading-relaxed text-[#cfc7b4]">
+      {
+        t.facts.map((fact) => (
+          <li class="flex gap-3">
+            <span class="text-[#e8b45a]" aria-hidden="true">&#9733;</span>
+            <span>{fact}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <footer class="mt-4 flex flex-col items-center gap-2 text-center text-xs text-[#cfc7b4]/60">
+    <p>{t.footer1}</p>
+    <p>{t.footer2}</p>
+  </footer>
+</main>

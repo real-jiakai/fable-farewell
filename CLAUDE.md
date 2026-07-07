@@ -1,0 +1,3 @@
+# fable-farewell
+
+@AGENTS.md
