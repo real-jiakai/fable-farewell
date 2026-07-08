@@ -28,7 +28,7 @@ export const ui = {
     heroPre: 'Farewell for now, ',
     heroName: 'Fable 5',
     subtitle:
-      'On July 7, 2026, Fable 5 leaves Claude subscription plans (Pro / Max / Team / select Enterprise) and continues on usage-credit billing and the API.',
+      'On July 12, 2026, Fable 5 leaves Claude subscription plans (Pro / Max / Team / select Enterprise) and continues on usage-credit billing and the API.',
 
     countdownHeading: 'Time remaining on Claude subscriptions',
     units: { days: 'days', hours: 'hours', minutes: 'minutes', seconds: 'seconds' },
@@ -51,7 +51,8 @@ export const ui = {
 
     factsHeading: "What's actually happening",
     facts: [
-      'Fable 5 is not retired or deprecated — it is included on Claude subscriptions "through July 7," then moves to usage-credit billing.',
+      'Fable 5 is not retired or deprecated — it is included on Claude subscriptions "through July 12," then moves to usage-credit billing.',
+      'The cutover was originally scheduled for July 7, 2026, but on July 7 Anthropic extended included access by five more days, to July 12, 2026.',
       'It remains fully available on the Claude API the whole time, unaffected by this change.',
       'Anthropic says this is temporary and aims to restore Fable as a standard part of subscriptions as soon as capacity allows.',
       'No official time of day was published for the cutover — this page estimates end of day Pacific Time.',
@@ -59,7 +60,7 @@ export const ui = {
 
     footer1: 'This is an unofficial, fan-made page and is not affiliated with or endorsed by Anthropic.',
     footer2:
-      'The exact cutover time was never published; July 7, 2026 end-of-day Pacific Time is an estimate used for this countdown only.',
+      'The exact cutover time was never published; July 12, 2026 end-of-day Pacific Time is an estimate used for this countdown only.',
   },
 
   zh: {
@@ -81,7 +82,7 @@ export const ui = {
     heroPre: '暂别有期，',
     heroName: 'Fable 5',
     subtitle:
-      '2026 年 7 月 7 日，Fable 5 将从 Claude 订阅计划（Pro / Max / Team / 部分 Enterprise）中下线，转为按用量计费，并继续通过 API 提供服务。',
+      '2026 年 7 月 12 日，Fable 5 将从 Claude 订阅计划（Pro / Max / Team / 部分 Enterprise）中下线，转为按用量计费，并继续通过 API 提供服务。',
 
     countdownHeading: 'Claude 订阅计划剩余时间',
     units: { days: '天', hours: '小时', minutes: '分钟', seconds: '秒' },
@@ -104,14 +105,15 @@ export const ui = {
 
     factsHeading: '实际情况是这样的',
     facts: [
-      'Fable 5 并没有被淘汰或弃用——它会在 Claude 订阅计划中提供至“7 月 7 日”，此后转为按用量计费。',
+      'Fable 5 并没有被淘汰或弃用——它会在 Claude 订阅计划中提供至“7 月 12 日”，此后转为按用量计费。',
+      '切换时间原定为 2026 年 7 月 7 日，但 Anthropic 于 7 月 7 日宣布将订阅计划内的可用期限延长五天，延至 2026 年 7 月 12 日。',
       '在此期间，它始终可以通过 Claude API 完整使用，不受这次调整影响。',
       'Anthropic 表示这只是暂时调整，会在算力允许的情况下尽快让 Fable 重新成为订阅计划的标准模型。',
       '官方并未公布具体的切换时间——本页面按太平洋时间当天结束时刻进行估算。',
     ],
 
     footer1: '这是一个非官方的粉丝制作页面，与 Anthropic 没有关联，也未获得其认可。',
-    footer2: '确切的切换时间从未正式公布；本倒计时仅以 2026 年 7 月 7 日太平洋时间当天结束作为估算依据。',
+    footer2: '确切的切换时间从未正式公布；本倒计时仅以 2026 年 7 月 12 日太平洋时间当天结束作为估算依据。',
   },
 
   ja: {
@@ -133,7 +135,7 @@ export const ui = {
     heroPre: 'しばしの別れ、',
     heroName: 'Fable 5',
     subtitle:
-      '2026年7月7日、Fable 5 は Claude のサブスクリプションプラン（Pro / Max / Team / 一部の Enterprise）の対象から外れ、従量課金クレジットと API を通じて提供が続きます。',
+      '2026年7月12日、Fable 5 は Claude のサブスクリプションプラン（Pro / Max / Team / 一部の Enterprise）の対象から外れ、従量課金クレジットと API を通じて提供が続きます。',
 
     countdownHeading: 'Claude サブスクリプションでの残り時間',
     units: { days: '日', hours: '時間', minutes: '分', seconds: '秒' },
@@ -156,7 +158,8 @@ export const ui = {
 
     factsHeading: '実際に起きていること',
     facts: [
-      'Fable 5 は廃止されたわけでも非推奨になったわけでもありません。Claude サブスクリプションでは「7月7日まで」提供され、その後は従量課金クレジットへ移行します。',
+      'Fable 5 は廃止されたわけでも非推奨になったわけでもありません。Claude サブスクリプションでは「7月12日まで」提供され、その後は従量課金クレジットへ移行します。',
+      '切り替えは当初2026年7月7日に予定されていましたが、Anthropic は7月7日、対象期間を5日間延長し、2026年7月12日までとすることを発表しました。',
       'この変更の影響を受けることなく、Claude API では引き続き完全に利用できます。',
       'Anthropic はこれを一時的な措置だとしており、キャパシティが許し次第、Fable をサブスクリプションの標準モデルとして復帰させたいとしています。',
       '切り替えの正確な時刻は公式には発表されておらず、このページでは太平洋時間の一日の終わりを目安として推定しています。',
@@ -164,6 +167,6 @@ export const ui = {
 
     footer1: 'これは非公式のファンメイドページであり、Anthropic とは関係なく、公認されたものでもありません。',
     footer2:
-      '正確な切り替え時刻は公表されていません。2026年7月7日太平洋時間の終わりというのは、このカウントダウンのための推定にすぎません。',
+      '正確な切り替え時刻は公表されていません。2026年7月12日太平洋時間の終わりというのは、このカウントダウンのための推定にすぎません。',
   },
 };

@@ -6,7 +6,7 @@ An unofficial, multilingual countdown to the moment Claude Fable 5 leaves Claude
 
 ## What this is
 
-After July 7, 2026, Fable 5 moves off Claude subscription plans (Pro / Max / Team / select Enterprise) and onto usage-credit billing. It is **not retired or deprecated** — it remains fully available on the Claude API throughout, unaffected by this change. Anthropic has said this is temporary and that it aims to restore Fable 5 to subscriptions as soon as capacity allows. The countdown targets `2026-07-08T06:59:59Z` (end of day July 7, 2026, US Pacific Time) — an estimate, since no official time of day was ever published for the cutover.
+After July 12, 2026, Fable 5 moves off Claude subscription plans (Pro / Max / Team / select Enterprise) and onto usage-credit billing. It is **not retired or deprecated** — it remains fully available on the Claude API throughout, unaffected by this change. Anthropic has said this is temporary and that it aims to restore Fable 5 to subscriptions as soon as capacity allows. The cutover was originally set for July 7, 2026, but on July 7 Anthropic extended included access by five more days, to July 12, 2026. The countdown targets `2026-07-13T06:59:59Z` (end of day July 12, 2026, US Pacific Time) — an estimate, since no official time of day was ever published for the cutover.
 
 This is an unofficial, fan-made page and is not affiliated with or endorsed by Anthropic.
 
