@@ -1,7 +1,9 @@
 // Single source of truth for the departure instant.
-// End of day July 12, 2026, Pacific Time (estimated — no official time was ever published).
-// Originally set for July 7, 2026; Anthropic extended included access by five days on July 7, 2026.
-export const DEPARTURE_ISO = '2026-07-13T06:59:59Z';
+// July 19, 2026 at 11:59:59 PM Pacific Time — official, per Anthropic's support
+// article (support.claude.com/en/articles/15424964-claude-fable-5-promotional-access).
+// Originally set for July 7, 2026; Anthropic extended included access twice:
+// first to July 12, 2026, then again to July 19, 2026.
+export const DEPARTURE_ISO = '2026-07-20T06:59:59Z';
 
 export const DEFAULT_LOCALE = 'en';
 

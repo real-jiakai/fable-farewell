@@ -6,7 +6,7 @@ An unofficial, multilingual countdown to the moment Claude Fable 5 leaves Claude
 
 ## What this is
 
-After July 12, 2026, Fable 5 moves off Claude subscription plans (Pro / Max / Team / select Enterprise) and onto usage-credit billing. It is **not retired or deprecated** — it remains fully available on the Claude API throughout, unaffected by this change. Anthropic has said this is temporary and that it aims to restore Fable 5 to subscriptions as soon as capacity allows. The cutover was originally set for July 7, 2026, but on July 7 Anthropic extended included access by five more days, to July 12, 2026. The countdown targets `2026-07-13T06:59:59Z` (end of day July 12, 2026, US Pacific Time) — an estimate, since no official time of day was ever published for the cutover.
+After July 19, 2026, Fable 5 moves off Claude subscription plans (Pro / Max / Team / select Enterprise) and onto usage-credit billing. It is **not retired or deprecated** — it remains fully available on the Claude API throughout, unaffected by this change. Anthropic has said this is temporary and that it aims to restore Fable 5 to subscriptions as soon as capacity allows. The cutover was originally set for July 7, 2026, and has since been extended twice: first to July 12, 2026, then again to July 19, 2026. The countdown targets `2026-07-20T06:59:59Z` (July 19, 2026 at 11:59:59 PM US Pacific Time) — this is now an official figure, per Anthropic's support article, not an estimate.
 
 This is an unofficial, fan-made page and is not affiliated with or endorsed by Anthropic.
 
@@ -69,4 +69,4 @@ The build output (`dist/`) is fully static and can be hosted anywhere. Before po
 
 ## Disclaimer
 
-This is an unofficial fan project, not affiliated with or endorsed by Anthropic. The departure time is an estimate, not an official figure. Facts are current as of July 2026, based on Anthropic's documentation and press coverage.
+This is an unofficial fan project, not affiliated with or endorsed by Anthropic. The departure time is an official figure published in Anthropic's support article, not an estimate. Facts are current as of July 2026, based on Anthropic's documentation and press coverage.
