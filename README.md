@@ -2,11 +2,11 @@
 
 # Farewell for now, Fable 5 ⏳
 
-An unofficial, multilingual countdown to the moment Claude Fable 5 leaves Claude subscription plans.
+An unofficial, multilingual countdown to the end of Claude Fable 5's universal included access on Claude plans.
 
 ## What this is
 
-After July 19, 2026, Fable 5 moves off Claude subscription plans (Pro / Max / Team / select Enterprise) and onto usage-credit billing. It is **not retired or deprecated** — it remains fully available on the Claude API throughout, unaffected by this change. Anthropic has said this is temporary and that it aims to restore Fable 5 to subscriptions as soon as capacity allows. The cutover was originally set for July 7, 2026, and has since been extended twice: first to July 12, 2026, then again to July 19, 2026. The countdown targets `2026-07-20T06:59:59Z` (July 19, 2026 at 11:59:59 PM US Pacific Time) — this is now an official figure, per Anthropic's support article, not an estimate.
+This site counts down to the end of Fable 5's universal included access on Claude plans: July 19, 2026 at 11:59:59 PM Pacific Time. Fable 5 is **not retired or deprecated** — beginning July 20, 2026, it enters a new, split arrangement: it stays included in all Max and Team Premium plans (at 50% of limits, with no end date announced), while Pro and Team Standard users move to usage-credit billing and receive a one-time $100 credit, per Anthropic's @claudeai announcement of July 18, 2026. It remains fully available on the Claude API throughout, unaffected by any of this. The cutover was originally set for July 7, 2026, and had already been extended twice — first to July 12, 2026, then again to July 19, 2026 — before this split arrangement was announced. The countdown targets `2026-07-20T06:59:59Z` (July 19, 2026 at 11:59:59 PM US Pacific Time) — an official figure, per Anthropic's support article, not an estimate.
 
 This is an unofficial, fan-made page and is not affiliated with or endorsed by Anthropic.
 
@@ -69,4 +69,4 @@ The build output (`dist/`) is fully static and can be hosted anywhere. Before po
 
 ## Disclaimer
 
-This is an unofficial fan project, not affiliated with or endorsed by Anthropic. The departure time is an official figure published in Anthropic's support article, not an estimate. Facts are current as of July 2026, based on Anthropic's documentation and press coverage.
+This is an unofficial fan project, not affiliated with or endorsed by Anthropic. The countdown targets the end of the universal included-access period, an official time published in Anthropic's support article, not an estimate. Facts are current as of July 18, 2026, based on Anthropic's documentation and the @claudeai announcement of that date.

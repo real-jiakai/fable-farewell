@@ -1,15 +1,17 @@
 # fable-farewell — agent guide
 
-An unofficial, single-page static countdown site marking the moment Claude
-Fable 5 leaves Claude subscription plans. Get the facts straight: Fable 5 is
-**not retired or deprecated** — after July 19, 2026 it moves from Claude
-subscriptions (Pro/Max/Team/select Enterprise) to usage-credit billing, it
-remains fully available on the Claude API throughout, and this is stated to
-be temporary, with Anthropic aiming to restore it to subscriptions. The
-cutover was originally set for July 7, 2026; Anthropic has since extended
-included access twice — first to July 12, 2026, then again to July 19, 2026.
-The cutover time is now official: July 19, 2026 at 11:59:59 PM Pacific Time,
-per Anthropic's support article.
+An unofficial, single-page static countdown site marking the end of Claude
+Fable 5's universal included access on Claude plans. Get the facts straight:
+Fable 5 is **not retired or deprecated** — the site counts down to July 19,
+2026 at 11:59:59 PM Pacific Time, when the universal included-access period
+ends. Beginning July 20, 2026, Fable 5 enters a split arrangement, per
+Anthropic's @claudeai post of July 18, 2026: it stays included in Max and
+Team Premium plans (at 50% of limits, no end date announced), while Pro and
+Team Standard users move to usage-credit billing and receive a one-time $100
+credit. It was never removed from the Claude API, and remains fully
+available there throughout. Timeline: the cutover was originally set for
+July 7, 2026, extended to July 12, 2026, then to July 19, 2026, followed by
+the July 18, 2026 announcement of this split arrangement.
 
 ## Requirements
 
